@@ -225,10 +225,7 @@ Button createButton(String name, int x, int y, int myWidth, int myHeight)
 
 Slider createSlider(String name, int x, int y, int myWidth, int myHeight, float min, float max, float value)
 {
-  textSize(16);
-  fill(255);
-  text(name, x, y);
-  
+
   Slider slider = cp5.addSlider(name)
     .setCaptionLabel(name)
     .setPosition(x, y)
