@@ -14,6 +14,7 @@ int delay = 21;              //Minimum amount of time before new
 FloatList xList;
 FloatList yList;
 FloatList angles;
+ArrayList colors;
 Dot dot = new Dot();
 float rotation = 0;
 int timeCount = 0;
@@ -84,9 +85,11 @@ void setup()
   sideLenghtSlider = createSlider("SIDE_LENGTH", 10, 10 + sliderVerticalOffset * 2, 
         sliderWidth, sliderHeight, 5, 20, 10);
   minSectorAngleSlider = createSlider("MIN_ANGLE", 10, 10 + sliderVerticalOffset * 3, 
-        sliderWidth, sliderHeight, 45, 180, 90);
+        sliderWidth, sliderHeight, 10, 180, 90);
   maxSectorAngleSlider = createSlider("MAX_ANGLE", 10, 10 + sliderVerticalOffset * 4, 
-        sliderWidth, sliderHeight, 180, 360, 270);
+        sliderWidth, sliderHeight, 20, 360, 270);
+        
+  //font = createFont
   
   
   //Construct the image
@@ -99,7 +102,6 @@ void setup()
   DrawShape();
   popMatrix();
   
-  //writeSliderText(sliders);
 }
 
 
@@ -124,6 +126,12 @@ void draw()
     
     popMatrix();
   }
+  
+  textAlign(CENTER);
+  fill(150, 50, 50);
+  textSize(30);
+  text("Change sliders and select 'Create_New'", width / 2, height - 50);
+  noFill();
 }
 
 
@@ -234,14 +242,3 @@ Slider createSlider(String name, int x, int y, int myWidth, int myHeight, float 
     
   return slider;
 }
-
-/*void writeSliderText(ArrayList<Slider> sliders)
-{
-  for (int i = 0; i < sliders.size(); i++)
-  {
-    Slider slider = sliders.get(i);
-    //float[] position = slider.getPosition();
-    
-    text(slider.getName(), 0, 0);
-  }
-}*/
